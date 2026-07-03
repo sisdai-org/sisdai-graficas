@@ -52,7 +52,7 @@ watch(visualizando, (nv) => {
         </button>
       </div>
     </template>
-    <SisdaiSeriesTiempo
+    <SisdaiSeriesTiempoEscalonada
       :datos="datos"
       :variables="variables"
       :angulo_etiquetas_eje_x="-45"

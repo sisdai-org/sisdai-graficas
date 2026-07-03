@@ -26,25 +26,27 @@ import {
   SisdaiNomenclatura,
   SisdaiSeriesTiempo,
   SisdaiViolines,
-} from './componentes'
+  SisdaiSeriesTiempoEscalonada,
+} from "./componentes";
 
 const plugin = {
-  install: Vue => {
+  install: (Vue) => {
     //UI base
-    Vue.use(SisdaiGraficas)
-    Vue.use(SisdaiBarras)
-    Vue.use(SisdaiCajasBigotes)
-    Vue.use(SisdaiChecks)
-    Vue.use(SisdaiDona)
-    Vue.use(SisdaiNomenclatura)
-    Vue.use(SisdaiSeriesTiempo)
-    Vue.use(SisdaiAreasApiladas)
-    Vue.use(SisdaiAreasApiladasOrdenadas)
-    Vue.use(SisdaiViolines)
-    Vue.use(SisdaiAlluvial)
-    Vue.use(SisdaiGraficasGloboInfo)
+    Vue.use(SisdaiGraficas);
+    Vue.use(SisdaiBarras);
+    Vue.use(SisdaiCajasBigotes);
+    Vue.use(SisdaiChecks);
+    Vue.use(SisdaiDona);
+    Vue.use(SisdaiNomenclatura);
+    Vue.use(SisdaiSeriesTiempo);
+    Vue.use(SisdaiAreasApiladas);
+    Vue.use(SisdaiAreasApiladasOrdenadas);
+    Vue.use(SisdaiViolines);
+    Vue.use(SisdaiAlluvial);
+    Vue.use(SisdaiGraficasGloboInfo);
+    Vue.use(SisdaiSeriesTiempoEscalonada);
   },
-}
+};
 
 export {
   SisdaiAlluvial,
@@ -59,6 +61,7 @@ export {
   SisdaiNomenclatura,
   SisdaiSeriesTiempo,
   SisdaiViolines,
-}
+  SisdaiSeriesTiempoEscalonada,
+};
 
-export default plugin
+export default plugin;

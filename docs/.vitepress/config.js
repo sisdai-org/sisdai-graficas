@@ -1,8 +1,8 @@
-import { createRequire } from 'module'
+import { createRequire } from "module";
 
-const require = createRequire(import.meta.url)
-const pkg = require('../../package.json')
-import * as dotenv from 'dotenv'
+const require = createRequire(import.meta.url);
+const pkg = require("../../package.json");
+import * as dotenv from "dotenv";
 
 const {
   VITE_CDN_ARCHIVOS,
@@ -11,13 +11,13 @@ const {
   VITE_DESCRIPCION,
   VITE_GOOGLE_ANALYTICS_ID,
 } = dotenv.config({
-  path: 'docs/.env',
-}).parsed
+  path: "docs/.env",
+}).parsed;
 
 // https://vitepress.dev/reference/site-config
 export default {
-  lang: 'es-mx',
-  title: 'sisdai-graficas',
+  lang: "es-mx",
+  title: "sisdai-graficas",
   description: pkg.description,
   base: VITE_URL_BASE,
 
@@ -26,62 +26,62 @@ export default {
 
   head: [
     [
-      'link',
+      "link",
       {
-        rel: 'stylesheet',
-        href: 'https://file.myfontastic.com/JS4TgqY9L4s8WsKQDkt5qA/icons.css',
+        rel: "stylesheet",
+        href: "https://file.myfontastic.com/JS4TgqY9L4s8WsKQDkt5qA/icons.css",
       },
     ],
-    ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
+    ["link", { rel: "preconnect", href: "https://fonts.googleapis.com" }],
     [
-      'link',
+      "link",
       {
-        rel: 'icon',
-        href: '/favicon.ico',
+        rel: "icon",
+        href: "/favicon.ico",
       },
     ],
     [
-      'link',
-      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+      "link",
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "" },
     ],
     [
-      'link',
+      "link",
       {
-        href: 'https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap',
-        rel: 'stylesheet',
+        href: "https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap",
+        rel: "stylesheet",
       },
     ],
-    ['meta', { property: 'og:title', content: 'sisdai-graficas' }],
-    ['meta', { property: 'og:description', content: `${VITE_DESCRIPCION}` }],
+    ["meta", { property: "og:title", content: "sisdai-graficas" }],
+    ["meta", { property: "og:description", content: `${VITE_DESCRIPCION}` }],
     [
-      'meta',
+      "meta",
       {
-        property: 'og:image',
+        property: "og:image",
         content: `${VITE_CDN_ARCHIVOS}redes/miniatura-sisdaigraficas.png`,
       },
     ],
     [
-      'meta',
-      { property: 'og:url', content: `${VITE_DOMINIO}${VITE_URL_BASE}` },
+      "meta",
+      { property: "og:url", content: `${VITE_DOMINIO}${VITE_URL_BASE}` },
     ],
-    ['meta', { name: 'twitter:title', content: 'sisdai-graficas' }],
-    ['meta', { name: 'twitter:description', content: `${VITE_DESCRIPCION}` }],
+    ["meta", { name: "twitter:title", content: "sisdai-graficas" }],
+    ["meta", { name: "twitter:description", content: `${VITE_DESCRIPCION}` }],
     [
-      'meta',
+      "meta",
       {
-        name: 'twitter:image',
+        name: "twitter:image",
         content: `${VITE_CDN_ARCHIVOS}redes/miniatura-sisdaigraficas.png`,
       },
     ],
     [
-      'script',
+      "script",
       {
-        async: '',
+        async: "",
         src: `https://www.googletagmanager.com/gtag/js?id=${VITE_GOOGLE_ANALYTICS_ID}`,
       },
     ],
     [
-      'script',
+      "script",
       {},
       `window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -95,101 +95,105 @@ export default {
     nav: nav(),
 
     sidebar: {
-      '/': sidebarGraficas(''),
-      '/comienza/': sidebarComienza('comienza'),
+      "/": sidebarGraficas(""),
+      "/comienza/": sidebarComienza("comienza"),
 
-      '/graficas/': sidebarGraficas('graficas'),
+      "/graficas/": sidebarGraficas("graficas"),
     },
 
     socialLinks: [
       {
-        icon: 'github',
-        link: pkg.repository.url || '',
-        ariaLabel: 'github',
+        icon: "github",
+        link: pkg.repository.url || "",
+        ariaLabel: "github",
       },
     ],
 
     lastUpdated: {
       formatOptions: {
-        dateStyle: 'short',
-        timeStyle: 'medium',
-        timeZone: 'America/Mexico_City',
+        dateStyle: "short",
+        timeStyle: "medium",
+        timeZone: "America/Mexico_City",
       },
-      text: 'Última actualización',
+      text: "Última actualización",
     },
   },
-}
+};
 
 function nav() {
   return [
     {
-      text: 'Inicio',
-      link: '/',
-      activeMatch: '',
+      text: "Inicio",
+      link: "/",
+      activeMatch: "",
     },
     {
-      text: 'Comienza',
-      link: '/comienza/',
-      activeMatch: 'comienza',
+      text: "Comienza",
+      link: "/comienza/",
+      activeMatch: "comienza",
     },
     {
-      text: 'Gráficas',
-      link: '/graficas/personalizacion/',
-      activeMatch: 'graficas',
+      text: "Gráficas",
+      link: "/graficas/personalizacion/",
+      activeMatch: "graficas",
     },
-  ]
+  ];
 }
 
 function sidebarGraficas(path) {
   // Agrega aquí las rutas de los nuevos componentes
   return [
     {
-      text: 'Personalización',
+      text: "Personalización",
       link: `/${path}/personalizacion/`,
     },
     {
-      text: 'Alluvial',
+      text: "Alluvial",
       link: `/${path}/alluvial/`,
     },
     {
-      text: 'Áreas apiladas',
+      text: "Áreas apiladas",
       link: `/${path}/areas-apiladas/`,
     },
     {
-      text: 'Áreas apiladas ordenadas',
+      text: "Áreas apiladas ordenadas",
       link: `/${path}/areas-apiladas-ordenadas/`,
     },
     {
-      text: 'Barras',
+      text: "Barras",
       link: `/${path}/barras/`,
     },
     {
-      text: 'Cajas y Bigotes',
+      text: "Cajas y Bigotes",
       link: `/${path}/cajas-bigotes/`,
     },
     {
-      text: 'Dona',
+      text: "Dona",
       link: `/${path}/dona/`,
     },
     {
-      text: 'Series de Tiempo',
+      text: "Series de Tiempo",
       link: `/${path}/series-tiempo/`,
     },
     {
-      text: 'Violines',
+      text: "Series de Tiempo Escalonada",
+      link: `/${path}/series-tiempo-escalonada/`,
+    },
+    {
+      text: "Violines",
       link: `/${path}/violines/`,
     },
-  ]
+  ];
 }
 function sidebarComienza(path) {
   return [
     {
-      text: 'Comienza',
+      text: "Comienza",
       link: `/${path}/`,
     },
     {
-      text: 'Instalación',
+      text: "Instalación",
       link: `/${path}/instalacion/`,
     },
-  ]
+  ];
 }

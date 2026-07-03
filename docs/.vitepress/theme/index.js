@@ -1,32 +1,32 @@
 // import pageComponents from '@internal/page-components'
 
-import '@centrogeomx/sisdai-css'
+import "@centrogeomx/sisdai-css/dist/sisdai.min.css";
 
-import 'vitepress/dist/client/theme-default/styles/components/vp-code.css'
-import 'vitepress/dist/client/theme-default/styles/icons.css'
-import 'vitepress/dist/client/theme-default/styles/vars.css'
+import "vitepress/dist/client/theme-default/styles/components/vp-code.css";
+import "vitepress/dist/client/theme-default/styles/icons.css";
+import "vitepress/dist/client/theme-default/styles/vars.css";
 
-import './estilo/codigo.css'
-import './estilo/index.scss'
+import "./estilo/codigo.css";
+import "./estilo/index.scss";
 
 // https://vitepress.dev/guide/custom-theme
-import { createPinia } from 'pinia'
+import { createPinia } from "pinia";
 
-import Layout from './Layout.vue'
+import Layout from "./Layout.vue";
 
 export default {
   Layout,
   async enhanceApp({ app }) {
     // Pinia
-    const pinia = createPinia()
-    app.use(pinia)
+    const pinia = createPinia();
+    app.use(pinia);
     if (!import.meta.env.SSR) {
       // Store
-      const store = await import('../store')
-      app.mixin({ store: store })
+      const store = await import("../store");
+      app.mixin({ store: store });
       // Componentes
-      const SisdaiComponentes = await import('./../../../src/index.js')
-      app.use(SisdaiComponentes.default)
+      const SisdaiComponentes = await import("./../../../src/index.js");
+      app.use(SisdaiComponentes.default);
     }
 
     // register your custom global components
@@ -34,4 +34,4 @@ export default {
     //   app.component(name, component)
     // }
   },
-}
+};

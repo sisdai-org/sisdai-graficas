@@ -45,7 +45,7 @@ watch(
     :margenes="{ arriba: 30, abajo: 70, derecha: 30, izquierda: 40 }"
   >
     <template #panel-encabezado-vis> </template>
-    <SisdaiSeriesTiempo
+    <SisdaiSeriesTiempoEscalonada
       ref="serieDeTiempo"
       :datos="datos"
       :variables="[

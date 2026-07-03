@@ -21,7 +21,7 @@ const laSerie = ref();
         </p>
       </SisdaiGraficasGloboInfo>
     </template>
-    <SisdaiSeriesTiempo
+    <SisdaiSeriesTiempoEscalonada
       ref="laSerie"
       :datos="[
         { fecha: '01-01-2015', cantidad_1: 100, cantidad_2: 10 },
