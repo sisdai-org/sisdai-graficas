@@ -1,6 +1,6 @@
 <script setup>
-import { ref } from "vue";
-const laSerie = ref();
+import { ref } from 'vue'
+const laSerie = ref()
 </script>
 <template>
   <SisdaiGraficas
