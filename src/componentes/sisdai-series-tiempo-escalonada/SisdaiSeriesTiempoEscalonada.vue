@@ -1,7 +1,7 @@
 <script setup>
 import { idAleatorio } from '../../utils'
 
-import { ascending, bisector, extent, max, min } from 'd3-array'
+import { ascending, bisector, extent, min } from 'd3-array'
 import { scaleLinear, scaleTime } from 'd3-scale'
 import { select } from 'd3-selection'
 import { line, curveStep } from 'd3-shape'
@@ -111,6 +111,9 @@ const circulo_marcador = ref()
 const idTabla = idAleatorio()
 
 function calcularEscalas(grupoVis) {
+  datos.value.forEach(
+    d => (d.la_fecha = conversionTemporal(d[nombre_indice.value]))
+  )
   if (!grupoVis && grupoVis.ancho === 0) return
   escalaTemporal.value = scaleTime()
     .domain(extent(datos.value?.map(d => d.la_fecha)))
@@ -151,9 +154,6 @@ function calcularEscalas(grupoVis) {
   )
 }
 function creaSeries() {
-  datos.value.forEach(
-    d => (d.la_fecha = conversionTemporal(d[nombre_indice.value]))
-  )
   usarRegistroGraficas().grafica(idGrafica).agregarTabla(idTabla, {
     datos: datos.value,
     variables: variables.value,
@@ -207,7 +207,6 @@ function creaSeries() {
           .transition()
           .duration(500)
           .style('fill', 'none')
-          .style('stroke', d => d.color)
           .style('stroke-width', '1px')
       )
       grupo
@@ -232,20 +231,44 @@ function creaSeries() {
             ...d,
           }))
         )
-        .transition()
-        .duration(500)
-        .attr(
-          'r',
-          min([
-            (0.3 * usarRegistroGraficas().grafica(idGrafica).grupoVis.ancho) /
-              datos.value.length,
-            4,
-          ])
+        .join(
+          enter =>
+            enter
+              .append('circle')
+              .attr('class', 'puntos')
+              .attr('r', 0)
+              .attr('cx', d => {
+                return escalaTemporal.value(d.la_fecha)
+              })
+
+              .attr(
+                'cy',
+                usarRegistroGraficas().grafica(idGrafica).grupoVis.alto
+              )
+              .style('stroke', '#fff')
+              .style('fill', d => d.color),
+
+          update => update,
+
+          exit => exit.transition().duration(500).attr('r', 0).remove()
         )
-        .attr('cx', d => escalaTemporal.value(d.la_fecha))
-        .attr('cy', d => escalaLineal.value(d.valor))
-        .style('stroke', '#fff')
-        .style('fill', d => d.color)
+        .call(sel =>
+          sel
+            .transition()
+            .duration(500)
+            .attr(
+              'r',
+              min([
+                (0.3 *
+                  usarRegistroGraficas().grafica(idGrafica).grupoVis.ancho) /
+                  datos.value.length,
+                4,
+              ])
+            )
+            .attr('cx', d => escalaTemporal.value(d.la_fecha))
+            .attr('cy', d => escalaLineal.value(d.valor))
+            .style('fill', d => d.color)
+        )
     }, // no update function
     exit => {
       exit.remove()
@@ -286,6 +309,12 @@ onMounted(() => {
     )
     calcularEscalas(usarRegistroGraficas().grafica(idGrafica).grupoVis)
     creaSeries()
+    console.log(
+      escalaTemporal.value.domain(),
+      escalaTemporal.value(conversionTemporal('20-02-2020')),
+      conversionTemporal('20-02-2020')
+    )
+    console.log(datos.value)
   })
   watch(variables, () => {
     calcularEscalas(usarRegistroGraficas().grafica(idGrafica).grupoVis)
@@ -339,6 +368,16 @@ onMounted(() => {
         .selectAll('path')
         .style('stroke-width', '3px')
         .style('stroke-opacity', '1')
+      grupoSeries.value
+        .selectAll('circle.puntos')
+        .style('fill-opacity', '0')
+        .style('stroke-opacity', '0')
+
+      grupoSeries.value
+        .filter(d => d.id === datos_hover.value.id)
+        .selectAll('circle.puntos')
+        .style('fill-opacity', '1')
+        .style('stroke-opacity', '1')
     },
     { deep: true }
   )
@@ -351,6 +390,10 @@ onMounted(() => {
           .selectAll('path')
           .style('stroke-width', '2px')
           .style('stroke-opacity', '.8')
+        grupoSeries.value
+          .selectAll('circle.puntos')
+          .style('fill-opacity', '1')
+          .style('stroke-opacity', '1')
       }
     }
   )

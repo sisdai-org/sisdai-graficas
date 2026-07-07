@@ -111,6 +111,9 @@ const circulo_marcador = ref()
 const idTabla = idAleatorio()
 
 function calcularEscalas(grupoVis) {
+  datos.value.forEach(
+    d => (d.la_fecha = conversionTemporal(d[nombre_indice.value]))
+  )
   if (!grupoVis && grupoVis.ancho === 0) return
   escalaTemporal.value = scaleTime()
     .domain(extent(datos.value?.map(d => d.la_fecha)))
