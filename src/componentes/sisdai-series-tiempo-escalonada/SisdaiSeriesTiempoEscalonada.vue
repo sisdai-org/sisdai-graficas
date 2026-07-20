@@ -121,8 +121,8 @@ function calcularEscalas(grupoVis) {
   let minmax = extent(
     datos.value?.map(d => extent(variables.value.map(dd => d[dd.id]))).flat()
   )
-  let dominioLineal
-  if (minmax[0] === 0 && minmax[1] === 0) {
+  let dominioLineal = minmax
+  /*if (minmax[0] === 0 && minmax[1] === 0) {
     dominioLineal = [0, 1]
   } else if (minmax[0] >= 0 && minmax[1] > 0) {
     dominioLineal = [0, minmax[1]]
@@ -130,7 +130,7 @@ function calcularEscalas(grupoVis) {
     dominioLineal = minmax
   } else {
     dominioLineal = [0, minmax[1]]
-  }
+  }*/
 
   escalaLineal.value = scaleLinear()
     .domain(dominioLineal)
