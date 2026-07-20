@@ -309,12 +309,7 @@ onMounted(() => {
     )
     calcularEscalas(usarRegistroGraficas().grafica(idGrafica).grupoVis)
     creaSeries()
-    console.log(
-      escalaTemporal.value.domain(),
-      escalaTemporal.value(conversionTemporal('20-02-2020')),
-      conversionTemporal('20-02-2020')
-    )
-    console.log(datos.value)
+
   })
   watch(variables, () => {
     calcularEscalas(usarRegistroGraficas().grafica(idGrafica).grupoVis)
