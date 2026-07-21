@@ -2,9 +2,6 @@
 import SisdaiIndiceDeContenido from '@centrogeomx/sisdai-componentes/src/componentes/indice-de-contenido/SisdaiIndiceDeContenido.vue'
 import SisdaiMenuAccesibilidad from '@centrogeomx/sisdai-componentes/src/componentes/menu-accesibilidad/SisdaiMenuAccesibilidad.vue'
 import SisdaiMenuLateral from '@centrogeomx/sisdai-componentes/src/componentes/menu-lateral/SisdaiMenuLateral.vue'
-import SisdaiNavegacionGobMx from '@centrogeomx/sisdai-componentes/src/componentes/navegacion-gob-mx/SisdaiNavegacionGobMx.vue'
-import SisdaiPiePaginaConahcyt from '@centrogeomx/sisdai-componentes/src/componentes/pie-pagina-conahcyt/SisdaiPiePaginaConahcyt.vue'
-import SisdaiPiePaginaGobMx from '@centrogeomx/sisdai-componentes/src/componentes/pie-pagina-gob-mx/SisdaiPiePaginaGobMx.vue'
 import SisdaiColapsableNavegacion from '@centrogeomx/sisdai-componentes/src/componentes/colapsable-navegacion/SisdaiColapsableNavegacion.vue'
 
 import { useData, useRoute } from 'vitepress'
@@ -103,7 +100,6 @@ const opciones_avanzadas = [
       Ir a contenido principal
     </a>
 
-    <SisdaiNavegacionGobMx />
     <NavegacionPrincipal />
 
     <SisdaiMenuAccesibilidad />
@@ -264,8 +260,5 @@ const opciones_avanzadas = [
         </div>
       </div>
     </div>
-
-    <SisdaiPiePaginaConahcyt />
-    <SisdaiPiePaginaGobMx />
   </div>
 </template>
