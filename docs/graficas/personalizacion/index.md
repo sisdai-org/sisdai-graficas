@@ -1,6 +1,7 @@
 <script setup>
   import Basico from "../../.vitepress/components/graficas/basico.vue";
   import Editable from "../../.vitepress/components/graficas/editable-graficas.vue";
+const sisdaiMain = import.meta.env.VITE_SISDAI_MAIN;
 
 </script>
 
@@ -58,8 +59,8 @@ En este ejemplo se muestra cómo se escribe el componente `<SisdaiGraficas>` y s
 ### Slots
 
 - **Slot principal**: Se utiliza para insertar los subcomponentes gráficos, como `<SisdaiBarras/>` , dentro de `<SisdaiGraficas/>`.
-- `panel-encabezado-vis`: En este slot se puede introducir contenido `HTML` en la parte superior del gráfico usando los estilos especificados para visualizaciones por el [Sisdai](https://sisdai.conahcyt.mx/), tales como títulos de gráfica, instrucción, fecha de actualización, entre otros.
-- `panel-pie-vis`: En este slot se puede introducir contenido `HTML` en la parte inferior del gráfico, usando los estilos especificados para visualizaciones por el [Sisdai](https://sisdai.conahcyt.mx/), tales como nomenclaturas, fuentes, entre otros.
+- `panel-encabezado-vis`: En este slot se puede introducir contenido `HTML` en la parte superior del gráfico usando los estilos especificados para visualizaciones por el <a :href="sisdaiMain">Sisdai</a>, tales como títulos de gráfica, instrucción, fecha de actualización, entre otros.
+- `panel-pie-vis`: En este slot se puede introducir contenido `HTML` en la parte inferior del gráfico, usando los estilos especificados para visualizaciones por el <a :href="sisdaiMain">Sisdai</a>, tales como nomenclaturas, fuentes, entre otros.
 - `globo-informacion`: En este slot se inserta el componente `<SisdaiGraficasGloboInfo/>` que muestra información sobre el gráfico de forma interactiva. Puedes consultar más información <a href="/documentacion/globo-informacion" >aquí</a>.
 
 ### Métodos
