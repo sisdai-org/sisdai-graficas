@@ -7,6 +7,7 @@ import pkg from '../../../package.json'
 // https://vitepress.dev/reference/runtime-api#usedata
 const { theme, page } = useData()
 const navegacionPrincipal = ref(null)
+const sisdaiUrl = import.meta.env.VITE_SISDAI
 </script>
 
 <template>
@@ -14,11 +15,24 @@ const navegacionPrincipal = ref(null)
     :nav-informacion="`Sección: <b>${page.title}</b>`"
     ref="navegacionPrincipal"
   >
+    <template #identidad>
+      <a
+        :href="sisdaiUrl"
+        class="nav-hiperviculo-logo"
+      >
+        <img
+          src="/img/sisdai.png"
+          alt="Sisdai"
+          width="42.125px"
+          height="42.125px"
+        />
+      </a>
+    </template>
     <template #complementario>
       <div class="nav-menu-contenedor">
         <a
           class="nav-hipervinculo"
-          href="https://sisdai.conahcyt.mx"
+          :href="sisdaiUrl"
           target="_blank"
           rel="noopener noreferrer"
         >
