@@ -7,7 +7,7 @@ import pkg from '../../../package.json'
 // https://vitepress.dev/reference/runtime-api#usedata
 const { theme, page } = useData()
 const navegacionPrincipal = ref(null)
-const sisdaiUrl = import.meta.env.VITE_SISDAI
+const sisdaiUrl = import.meta.env.VITE_SISDAI_MAIN
 </script>
 
 <template>
