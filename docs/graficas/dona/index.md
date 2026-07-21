@@ -1,6 +1,8 @@
 <script setup>
     import Basico from "../../.vitepress/components/dona/basico.vue";
     import ModificandoDatos from "../../.vitepress/components/dona/modificando-datos.vue";
+    const repoSisdaiCss = import.meta.env.VITE_SISDAI_CSS_REPO;
+
 </script>
 
 # Dona
@@ -137,7 +139,7 @@ Ejemplo de implementación:
   - Valor predeterminado: `undefined`
   - Requerido: No
 
-- `color_dona_fondo`: Especifica el color de fondo de la dona para las áreas no asignadas a ningún segmento. Por defecto utiliza la variable de [sisdai-css](https://github.com/CentroGeo/sisdai-css) `"var(--fondo)"`, pero se puede definir cualquier formato de color admitido por CSS.
+- `color_dona_fondo`: Especifica el color de fondo de la dona para las áreas no asignadas a ningún segmento. Por defecto utiliza la variable de <a :href="repoSisdaiCss">sisdai-css</a> `"var(--fondo)"`, pero se puede definir cualquier formato de color admitido por CSS.
   - Tipo: `String`
   - Valor predeterminado: `"var(--fondo)"`
   - Requerido: No
