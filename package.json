@@ -1,6 +1,6 @@
 {
   "name": "@centrogeomx/sisdai-graficas",
-  "version": "6.8.2",
+  "version": "6.10.0",
   "publishConfig": {
     "access": "public"
   },

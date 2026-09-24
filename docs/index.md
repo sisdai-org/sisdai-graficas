@@ -4,7 +4,17 @@ title: Inicio
 
 <script setup>
   import SisdaiEnlaceExterno from "@centrogeomx/sisdai-componentes/src/componentes/enlace-externo/SisdaiEnlaceExterno.vue";
+  import * as dotenv from 'dotenv'
+
   const cdn = import.meta.env.VITE_CDN_ARCHIVOS
+  const sisdaiUrl = import.meta.env.VITE_SISDAI_MAIN
+  const sisdaiCss = import.meta.env.VITE_SISDAI_CSS
+  const sisdaiComponentes = import.meta.env.VITE_SISDAI_COMPONENTES
+  const sisdaiMapas = import.meta.env.VITE_SISDAI_MAPAS
+  const repoSisdaiCss = import.meta.env.VITE_SISDAI_CSS_REPO
+  const repoSisdaiComponentes = import.meta.env.VITE_SISDAI_COMPONENTES_REPO
+  const repoSisdaiMapas = import.meta.env.VITE_SISDAI_MAPAS_REPO
+
 </script>
 
 <main role="main" id="principal">
@@ -14,7 +24,7 @@ title: Inicio
       <p>
         Esta es la documentación para personas desarrolladoras de la biblioteca de
         gráficas del Sistema de Diseño y Accesibilidad para la Investigación
-        (<SisdaiEnlaceExterno texto="Sisdai" enlace="https://sisdai.conahcyt.mx/"/>).
+        (<SisdaiEnlaceExterno texto="Sisdai" :enlace="sisdaiUrl"/>).
       </p>
     </div>
     <div class="flex">
@@ -81,12 +91,12 @@ title: Inicio
           <div class="tarjeta-pie flex">
               <SisdaiEnlaceExterno
                 class="boton boton-primario boton-chico"
-                enlace="https://sisdai-css.conahcyt.mx/"
+                :enlace="sisdaiCss"
                 texto="Ir a documentación"
                 aria-label="Ir a documentación de sisdai-css"/>
               <SisdaiEnlaceExterno
                 class="boton boton-secundario boton-chico"
-                enlace="https://github.com/CentroGeo/sisdai-css"
+                :enlace="repoSisdaiCss"
                 texto="Ir a repositorio"
                 aria-label="Ir a repositorio de sisdai-css"/>
           </div>
@@ -112,12 +122,12 @@ title: Inicio
           <div class="tarjeta-pie flex">
               <SisdaiEnlaceExterno
                 class="boton boton-primario boton-chico"
-                enlace="https://sisdai-componentes.conahcyt.mx/"
+                :enlace="sisdaiComponentes"
                 texto="Ir a documentación"
                 aria-label="Ir a documentación de sisdai-componentes"/>
               <SisdaiEnlaceExterno
                 class="boton boton-secundario boton-chico"
-                enlace="https://github.com/CentroGeo/sisdai-componentes"
+                :enlace="repoSisdaiComponentes"
                 texto="Ir a repositorio"
                 aria-label="Ir a repositorio de sisdai-componentes"/>
           </div>
@@ -143,12 +153,12 @@ title: Inicio
           <div class="tarjeta-pie flex">
               <SisdaiEnlaceExterno
                 class="boton boton-primario boton-chico"
-                enlace="https://sisdai-mapas.conahcyt.mx/"
+                :enlace="sisdaiMapas"
                 texto="Ir a documentación"
                 aria-label="Ir a documentación de sisdai-mapas"/>
               <SisdaiEnlaceExterno
                 class="boton boton-secundario boton-chico"
-                enlace="https://github.com/CentroGeo/sisdai-mapas"
+                :enlace="repoSisdaiMapas"
                 texto="Ir a repositorio"
                 aria-label="Ir a repositorio de sisdai-mapas"/>
           </div>
@@ -174,7 +184,7 @@ title: Inicio
           <div class="tarjeta-pie flex">
               <SisdaiEnlaceExterno
                 class="boton boton-primario boton-chico"
-                enlace="https://sisdai.conahcyt.mx/"
+                :enlace="sisdaiUrl"
                 texto="Ir a Sisdai"
                 aria-label="Ir al portal de sisdai"/>
           </div>
